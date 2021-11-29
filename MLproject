@@ -1,0 +1,28 @@
+name: template_ml
+
+conda_env: environment.yml
+
+entry_points:
+  preprocessing:
+    parameters:
+      input: {type: str, default: 'teste'}
+    command: "python scripts/preprocessing.py {input} "
+
+  training:
+    parameters:
+      alpha: {type: float, default: 0.1}
+      l1_ratio: {type: float, default: 0.1}
+    command: "python scripts/training.py {alpha} {l1_ratio}"
+
+  tunner:
+    parameters:
+      alpha: {type: float, default: 0.1}
+      l1_ratio: {type: float, default: 0.1}
+    command: "python scripts/tunning.py {alpha} {l1_ratio}"
+
+  evaluete:
+    parameters:
+      alpha: {type: float, default: 0.1}
+      l1_ratio: {type: float, default: 0.1}
+    command: "python scripts/evaluete.py {alpha} {l1_ratio}"
+  
